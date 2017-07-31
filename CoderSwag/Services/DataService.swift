@@ -22,7 +22,55 @@ class DataService {
 		Category(title: "DIGITAL", imageName: "digital.png")
 	]
 	
+	private let hats = [
+		Product(imageName: "hat01.jpg", productName: "Devlsopes Coder Beanie", price: "$25"),
+		Product(imageName: "hat02.jpg", productName: "Devlsopes Coder Black Hat", price: "$18.99"),
+		Product(imageName: "hat03.jpg", productName: "Devlsopes Coder White Hat", price: "$29.99"),
+		Product(imageName: "hat04.jpg", productName: "Devlsopes Coder Black nd Red Hat", price: "$45")
+	]
+	
+	private let shirts = [
+		Product(imageName: "shirt01.jpg", productName: "Black Devslopes Graphic T-Shirt", price: "$25"),
+		Product(imageName: "shirt01.jpg", productName: "White Devslopes Graphic T-Shirt", price: "$15"),
+		Product(imageName: "shirt01.jpg", productName: "Red Devslopes Graphic T-Shirt", price: "$35"),
+		Product(imageName: "shirt01.jpg", productName: "Gray Devslopes Graphic T-Shirt", price: "$16"),
+		Product(imageName: "shirt01.jpg", productName: "Black and Red Devslopes Graphic T-Shirt", price: "$28")
+	]
+	
+	private let hoodies = [
+		Product(imageName: "hoodie01.jpg", productName: "Black and White Hoodie", price: "$35"),
+		Product(imageName: "hoodie02.jpg", productName: "Red Hoodie", price: "$38"),
+		Product(imageName: "hoodie03.jpg", productName: "Gray Hoodie", price: "$34"),
+		Product(imageName: "hoodie04.jpg", productName: "Black and White Hoodie", price: "$40")
+	]
+	
+	
 	func getCategories() -> [Category] {
 		return categories
+	}
+	
+	func getHats() -> [Product] {
+		return hats
+	}
+	
+	func getShirts() -> [Product] {
+		return shirts
+	}
+	
+	func getHoodies() -> [Product] {
+		return hoodies
+	}
+	func getProducts(forCategoryTitle title:String) -> [Product] {
+		switch  title {
+		case "HATS":
+			getHats()
+		case "SHIRTS":
+			getShirts()
+		case "HOODIES":
+			getHoodies()
+			
+		default:
+			return getShirts()
+		}
 	}
 }
